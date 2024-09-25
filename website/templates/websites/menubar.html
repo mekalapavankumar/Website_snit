@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menubar</title>
+    <link rel="stylesheet" href="{% static 'css/menubar.css'%}">
+</head>
+<body>
+
+    <div id="overlay"></div>
+
+    <div class="hamburger-menu" id="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="{% url 'home'%}">Home</a></li>
+            <li><a href="{% url 'about'%}">About</a></li>
+            <li><a href="{% url 'contactus'%}">Contact us</a></li>
+            <li><a href="{% url 'job_application'%}">Career</a></li>
+            <li><a href="{% url 'terms_conditions'%}">Terms & Conditions</a></li>
+            <li><a href="{% url 'faq'%}">FAQs</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+        </ul>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            const links = document.querySelectorAll('.sidebar ul li a');
+
+            // Function to toggle sidebar and overlay
+            function toggleSidebar() {
+                sidebar.classList.toggle('active');
+                overlay.classList.toggle('active');
+            }
+
+            // to open sidebar
+            hamburgerMenu.addEventListener('click', toggleSidebar);
+
+            // to close sidebar
+            overlay.addEventListener('click', toggleSidebar);
+
+            //  to Close sidebar when clicking on any link inside
+            links.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    // Prevent link action until sidebar closes
+                    event.preventDefault();
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+
+                    // Redirect after closing animation finishes
+                    setTimeout(() => {
+                        window.location.href = link.href;
+                    }, 300);  // Wait for 0.3s to match the transition time
+                });
+            });
+        });
+    </script>
+</body>
+</html>

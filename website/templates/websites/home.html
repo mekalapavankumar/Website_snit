@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SN IT Solutions</title>
+    <!-- <link rel="stylesheet" href="styles.css">  -->
+    <link href="{% static 'css/home.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="com-name">
+        <header>
+            <h1 style="padding-top: 100px; display:inline-flex; padding-left: 550px;">SN IT SOLUTIONS</h1>
+        </header>
+        {% include 'websites/menubar.html'%} 
+        <nav class="navbar">
+            <ul class="navbar-links">
+                <div class="navbar-left">
+                    <!-- Navigation Links -->
+                    <li class="nav-item">
+                        <a href="/about/" class="nav-link">About</a>
+                    </li>&nbsp;&nbsp;&nbsp;
+                    <li class="nav-item">
+                    <a href="/contactus/" class="nav-link">Contact Us</a>
+                    </li>&nbsp;&nbsp;&nbsp;
+                <li class="nav-item">
+                    <a href="/register/" class="nav-link">Register<a>
+                </li>&nbsp;&nbsp;&nbsp;
+                <li class="login-item">
+            <a href="/login/" class="login-button">Login</a>
+        </li>
+        
+        </ul> 
+        </nav>
+
+</div>
+    <div>
+    <p class="welcome-text">WELCOME TO SN IT SOLUTIONS !!</p>
+    </div>
+    <div class="image-container">
+        <img src="../../static/images/snit_logo.jpg" style="width: 15%; padding-left: 5px;" alt="SN IT Solutions Image">
+    </div>
+    <div class="search-container" style="width: 100%; text-align: left; padding-left: 440px;" >
+        <input type="text" id="searchInput" placeholder="Search here..." name="search">
+        <button onclick="searchFunction()"><i class="fas fa-search"></i></button>
+    </div>
+    <script>
+        function searchFunction() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+    
+            const pages = {
+                "login": "/login/",
+                "about": "/about/",
+                "career": "/career/",
+                "terms_conditions": "/terms_conditions/",
+                "organisation_details": "/ourteam/",
+                "privacy_policies": "/privacy_policies/",
+                "contactus": "/contactus/",
+                "faq": "/faq/",
+                "register": "/register/"
+            };
+    
+            if (pages[input]) {
+                window.location.href = pages[input];
+            } else {
+                alert("No matching page found for: " + input);
+            }
+        }
+    </script>
+    <section class="about-section">
+        <p>We are dedicated to driving innovation and delivering top-notch technology services to our clients.<br>
+            Our commitment to excellence, combined with our expertise in software development and cloud solutions, ensures that we bring your visions to life.
+        </p>
+    </section>
+    <div class="slider" style="margin-left: 25%;">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial active">
+            <img src="../../static/images/person.jpg" alt="Client Photo">
+            <p>"Snit Solutions exceeded our expectations with their exceptional service and dedication. Their team’s expertise and attention to detail have made a significant impact on our business operations. Truly a trusted partner!"</p>
+            <h4>Isha, Designer</h4>
+        </div>
+        <div class="testimonial">
+            <img src="../../static/images/person.jpg" alt="Client Photo">
+            <p>"We’ve had a great experience with Snit Solutions. Their commitment to delivering timely, top-notch solutions has made them a valuable asset to our business. They are reliable, responsive, and truly understand our goals."</p>
+            <h4>Shriya, Developer</h4>
+        </div>
+        <div class="testimonial">
+            <img src="../../static/images/person.jpg" alt="Client Photo">
+            <p>"Working with Snit Solutions has been an absolute pleasure. Their team is professional, efficient, and consistently delivers high-quality results. They understand our needs and go above and beyond to meet them. Highly recommend their services!"</p>
+            <h4>Sonu, Marketing</h4>
+        </div> 
+        <div class="testimonial">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.dG310mLViO5MZMHrK_oUHwHaHZ&pid=Api&P=0&h=180" alt="Client Photo">
+            <p>"Snit Solutions has been instrumental in helping us streamline our processes. Their innovative approach and excellent customer service set them apart. We’ve seen tangible improvements thanks to their expertise and dedication."</p>
+            <h4>Sam, Manager</h4>
+        </div>
+    </div>
+
+    <script>
+        const testimonials = document.querySelectorAll('.testimonial');
+        let currentIndex = 0;
+        const testimonialDuration = 5000;
+
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.classList.remove('active');
+                if (i === index) {
+                    testimonial.classList.add('active');
+                }
+            });
+        }
+
+        function startAutoSlider() {
+            setInterval(() => {
+                currentIndex++;
+                if (currentIndex >= testimonials.length) {
+                    currentIndex = 0;
+                }
+                showTestimonial(currentIndex);
+            }, testimonialDuration);
+        }
+
+        showTestimonial(currentIndex);
+        startAutoSlider();
+    </script>
+
+    <div class="div">
+        <h3 >PartnerShip</h3>
+    </div><br><br>
+    <div class="image-cont">
+        <img src="../../static/images/capgemini.png" alt="Image 1">&nbsp;
+        <img src="../../static/images/aspiresystem.jpg" alt="Image 2">
+    </div>
+    <!-- Footer Section -->   
+     <br> 
+    <footer>
+        <div>
+            <h5>Contact Info</h5>
+            <a href="mailto:snitsolutions2024@gmail.com?subject=Inquiry&body=Hello%20there!" class="footer-link">✉ snitsolutions2024@gmail.com</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.logo {
+  width: 10%;
+  height: 100%;
+  position: absolute;
+}
+  
+.logo-img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}

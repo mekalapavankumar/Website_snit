@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Website</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="ml-0">
+            <a class="navbar-brand" href="{% url 'home' %}" title="Snit Solutions">
+                <img src="{% static 'images/snit_logo.jpg' %}" class="img-fluid logo" alt="Not Available">
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto justify-content-center>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'job_application' %}">Careers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'organisation_details' %}">Our Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'privacy_policies' %}">Privacy Policies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'terms_conditions' %}">Terms & Conditions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}"><button type="button" class="btn btn-success">Login</button></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}"><button type="button" class="btn btn-primary">Register</button></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>

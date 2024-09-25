@@ -1,0 +1,55 @@
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    clear: both;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 100px; /* Set a fixed height for the footer */
+}
+
+.company-logo {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    vertical-align: middle; /* Vertically align the logo */
+    border: none; /* Remove border around the image */
+    border-radius: 50%; /* Make the image a circle */
+}
+
+footer .container {
+    max-width: 100%; /* Make the container full-width */
+    margin: 0 auto;
+    padding: 0; /* Remove padding to make the footer full-width */
+}
+
+footer .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%; /* Make the row full-height */
+}
+
+footer .col-md-2 {
+    flex-basis: 20%; /* Make the logo column 20% wide */
+}
+
+footer .col-md-10 {
+    flex-grow: 1;
+    text-align: right; /* Right-align the text */
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ccc;
+}
