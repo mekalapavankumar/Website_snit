@@ -12,14 +12,14 @@
     <div class="container">
         <div class="contact">
             <h1>Contact Us</h1>
-            <form method="POST" action="{% url 'send_mail' %}">
+            <form method="POST" action="{% url 'send_email' %}">
                 {% csrf_token %}
                 <label for="name" >Your Name:</label>
                 <input type="text" name="name" placeholder="Enter your name"required><br><br>
                 <label for="email">Your Email:</label>
                 <input type="email" name="email" placeholder="Enter your email" required><br><br>
                 <label for="message">Message:</label>
-                <textarea name="message" placeholder="Enter your message"required></textarea><br><br>
+                <div contenteditable="true" name="message" required><input type="text" placeholder="Enter your message"></div><br><br>
                 <div style="text-align: center;">
                 <button type="submit">Send</button>
             </form>

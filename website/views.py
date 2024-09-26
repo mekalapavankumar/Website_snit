@@ -20,11 +20,8 @@ def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            if form.cleaned_data['password'] != form.cleaned_data['confirm_password']:
-                form.add_error('confirm_password', 'Passwords do not match')
-            else:
-                form.save()
-                return redirect('registration_success')
+            form.save()
+            return redirect('login')
     else:
         form = RegistrationForm()
     return render(request, 'websites/register.html', {'form': form})
@@ -36,14 +33,18 @@ def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            return redirect('login_success')
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+            else:
+                # Handle invalid login
+                return render(request, 'websites/login.html', {'form': form, 'error': 'Invalid credentials'})
     else:
         form = LoginForm()
     return render(request, 'websites/login.html', {'form': form})
-
-def login_success(request):
-    return render(request, 'login_success.html')
 
 def login_success(request):
     return render(request,'websites/login_success.html')
@@ -110,7 +111,7 @@ def job_application_success(request):
     return render(request, 'websites/job_application_success.html')
     
 
-def send_mail_page(request):
+def send_email(request):
     context = {}
 
     if request.method=='POST':

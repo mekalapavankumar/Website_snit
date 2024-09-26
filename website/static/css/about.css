@@ -53,15 +53,10 @@ p {
     text-decoration:none;
     font-size:large;
     margin: 0 1%;
-    
-}
-
-.about-section a:hover {
-    text-decoration: underline;
 }
 
 /* Styling for Images */
-  .about-img {
+.about-img {
     width: 100%;
     height: auto;
     margin: 20px 0;
