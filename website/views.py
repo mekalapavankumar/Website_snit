@@ -42,6 +42,9 @@ def login_view(request):
             else:
                 # Handle invalid login
                 return render(request, 'websites/login.html', {'form': form, 'error': 'Invalid credentials'})
+        else:
+            # Handle invalid form
+            return render(request, 'websites/login.html', {'form': form})
     else:
         form = LoginForm()
     return render(request, 'websites/login.html', {'form': form})

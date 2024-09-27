@@ -37,7 +37,7 @@ p {
 /* About Section */
 .about-section {
     min-height: 100vh; 
-    padding: 120px 20px 40px;
+    padding: 120px 20px 10px;
     text-align: center;
     overflow-y: auto;
 }
@@ -45,8 +45,6 @@ p {
 .about-section p {
     margin-bottom: 20px;
 }
-
-
 
 .about-section a {
     color: #f1f1f2;
